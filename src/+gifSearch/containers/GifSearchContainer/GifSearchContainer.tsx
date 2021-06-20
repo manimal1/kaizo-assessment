@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Box } from '@material-ui/core';
 
-import { getSearchGifs } from '@services';
+import { getSearchGifs, GiphySearchResults, GiphySearchData } from '@services';
 import { useScreensizeContext } from '@providers';
 
 import { GifSearchDisplay, GifSearchForm } from '../../components';
@@ -10,7 +10,7 @@ export const GifSearchContainer: FC = () => {
   const { isPhone } = useScreensizeContext();
   const [gifSearchItem, setGifSearchItem] = useState<string>('');
   const [lastSearchItem, setLastSearchItem] = useState<string | null>(null);
-  const [searchData, setSearchData] = useState<any>(null);
+  const [searchData, setSearchData] = useState<GiphySearchData | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const isSearchUnchanged: boolean = gifSearchItem === lastSearchItem;
@@ -25,7 +25,7 @@ export const GifSearchContainer: FC = () => {
     setIsLoading(true);
     setLastSearchItem(gifSearchItem);
     getSearchGifs({ gifSearchItem })
-      .then((res: any) => {
+      .then((res: GiphySearchResults) => {
         setIsLoading(false);
         setSearchData(res.data);
       })

@@ -5,13 +5,16 @@ import {
   Grid,
   Card,
   CardContent,
+  Typography,
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
+
+import { GiphyGif } from '@services';
 
 import { useStyles } from './GifSearchDisplayStyles';
 
 interface Props {
-  searchData: any;
+  searchData: GiphyGif[] | undefined;
   isLoading: boolean;
   errorMessage: string | null;
 }
@@ -41,18 +44,31 @@ export const GifSearchDisplay: FC<Props> = ({
 
   return (
     <Grid container spacing={3}>
-      {searchData.map((gif: any) => (
-        <Grid item xs={12} md={4} lg={3} key={gif.id} className={classes.grid}>
-          <Card classes={{ root: classes.card }}>
-            <CardContent>
-              <img
-                src={gif.images?.downsized_medium?.url}
-                className={classes.image}
-              />
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
+      {searchData && searchData.length > 0 ? (
+        searchData.map((gif: GiphyGif) => (
+          <Grid
+            item
+            xs={12}
+            md={4}
+            lg={3}
+            key={gif.id}
+            className={classes.grid}
+          >
+            <Card classes={{ root: classes.card }}>
+              <CardContent>
+                <img
+                  src={gif.images?.downsized_medium?.url}
+                  className={classes.image}
+                />
+              </CardContent>
+            </Card>
+          </Grid>
+        ))
+      ) : (
+        <Box position="realtive" padding="2rem">
+          <Typography variant="body1">Nothing to display!</Typography>
+        </Box>
+      )}
     </Grid>
   );
 };

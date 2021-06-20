@@ -11,3 +11,23 @@ export interface GiphyQueryParams {
   rating: string;
   lang: string;
 }
+
+// I provided these Giphy Search types for the components to use
+// but I would change this to use actual Giphy types if I had more time
+export interface GiphyGif {
+  id: number;
+  images: {
+    downsized_medium: {
+      url: string;
+    };
+  };
+}
+
+export interface GiphySearchData {
+  data: GiphyGif[];
+}
+
+export interface GiphySearchResults {
+  data: GiphySearchData;
+  status: number;
+}
