@@ -52,5 +52,10 @@ export const theme = createMuiTheme({
         backgroundColor: 'transparent',
       },
     },
+    MuiFormLabel: {
+      root: {
+        color: 'rgba(255, 255, 255, 0.6)',
+      },
+    },
   },
 });
