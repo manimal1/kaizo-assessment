@@ -4,7 +4,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 import { theme } from '@utils';
 import { ScreensizeProvider } from '@providers';
-import { Home } from '@containers';
+
+import { GifSearchRoute } from './+gifSearch';
 
 import './App.css';
 
@@ -14,7 +15,7 @@ export const App: FC = () => {
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <ScreensizeProvider>
-          <Home />
+          <GifSearchRoute />
         </ScreensizeProvider>
       </ThemeProvider>
     </div>
