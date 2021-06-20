@@ -9,18 +9,21 @@ import { GifSearchDisplay, GifSearchForm } from '../../components';
 export const GifSearchContainer: FC = () => {
   const { isPhone } = useScreensizeContext();
   const [gifSearchItem, setGifSearchItem] = useState<string>('');
+  const [lastSearchItem, setLastSearchItem] = useState<string | null>(null);
   const [searchData, setSearchData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const isSearchUnchanged: boolean = gifSearchItem === lastSearchItem;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // prevent call with an empty value
-    if (!gifSearchItem) {
+    // prevent multiple submissions of the same search item or a query with an empty value
+    if (!gifSearchItem || isSearchUnchanged) {
       return;
     }
 
     setIsLoading(true);
+    setLastSearchItem(gifSearchItem);
     getSearchGifs({ gifSearchItem })
       .then((res: any) => {
         setIsLoading(false);
@@ -39,6 +42,8 @@ export const GifSearchContainer: FC = () => {
         isPhone={isPhone}
         gifSearchItem={gifSearchItem}
         setGifSearchItem={setGifSearchItem}
+        isLoading={isLoading}
+        isSearchUnchanged={isSearchUnchanged}
       />
       <Box component="div" marginTop="2rem">
         <GifSearchDisplay

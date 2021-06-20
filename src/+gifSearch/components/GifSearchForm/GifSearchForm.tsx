@@ -8,6 +8,8 @@ interface Props {
   isPhone: boolean;
   gifSearchItem: string;
   setGifSearchItem: (value: string) => void;
+  isLoading: boolean;
+  isSearchUnchanged: boolean;
 }
 
 export const GifSearchForm: FC<Props> = ({
@@ -15,6 +17,8 @@ export const GifSearchForm: FC<Props> = ({
   isPhone,
   gifSearchItem,
   setGifSearchItem,
+  isLoading,
+  isSearchUnchanged,
 }) => {
   const classes = useStyles(isPhone)();
 
@@ -48,6 +52,7 @@ export const GifSearchForm: FC<Props> = ({
           type="submit"
           className={classes.button}
           data-testid="search-button"
+          disabled={isLoading || isSearchUnchanged}
         >
           Get gifs
         </Button>

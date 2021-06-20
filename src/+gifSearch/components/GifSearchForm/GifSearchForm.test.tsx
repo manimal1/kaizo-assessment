@@ -18,6 +18,8 @@ const getWrapper = (
     setGifSearchItem: jest.fn(),
     isPhone: false,
     gifSearchItem: '',
+    isLoading: false,
+    isSearchUnchanged: false,
   };
   const props = {
     ...defaultProps,
