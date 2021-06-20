@@ -1,10 +1,14 @@
 import React, { FC } from 'react';
-import { CircularProgress, Grid, Card, CardContent } from '@material-ui/core';
+import {
+  Box,
+  CircularProgress,
+  Grid,
+  Card,
+  CardContent,
+} from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 
 import { useStyles } from './GifSearchDisplayStyles';
-
-// import { useStyles } from './GifSearchFormStyles';
 
 interface Props {
   searchData: any;
@@ -20,7 +24,11 @@ export const GifSearchDisplay: FC<Props> = ({
   const classes = useStyles();
 
   if (isLoading) {
-    return <CircularProgress color="secondary" />;
+    return (
+      <Box component="div" display="flex" alignItems="center">
+        <CircularProgress color="secondary" />
+      </Box>
+    );
   }
 
   if (errorMessage) {
