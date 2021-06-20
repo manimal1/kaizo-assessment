@@ -1,6 +1,7 @@
-# Simple API
+# Kaizo assessment
 
-This is a simple API starter project.
+This is a simple SPA that queries the [Giphy API](https://developers.giphy.com/docs/api/).\
+Enter a search item in the input and click the button to retrieve related gifs.
 
 ## Available Scripts
 
