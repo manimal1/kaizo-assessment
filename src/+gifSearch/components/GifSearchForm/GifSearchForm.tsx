@@ -7,7 +7,7 @@ interface Props {
   onSubmit: (e: React.FormEvent) => void;
   isPhone: boolean;
   gifSearchItem: string;
-  setGifSearchItem: (e: any) => void;
+  setGifSearchItem: (value: string) => void;
 }
 
 export const GifSearchForm: FC<Props> = ({
@@ -37,7 +37,9 @@ export const GifSearchForm: FC<Props> = ({
           label="Gif search"
           variant="outlined"
           value={gifSearchItem}
-          onChange={(e: any) => setGifSearchItem(e.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setGifSearchItem(event.currentTarget.value)
+          }
           classes={{ root: classes.input }}
         />
         <Button
@@ -45,6 +47,7 @@ export const GifSearchForm: FC<Props> = ({
           color="primary"
           type="submit"
           className={classes.button}
+          data-testid="search-button"
         >
           Get gifs
         </Button>
