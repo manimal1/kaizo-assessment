@@ -1,0 +1,178 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "react",
+    "react-hooks",
+    "import"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "@typescript-eslint/adjacent-overload-signatures": 2,
+    "@typescript-eslint/array-type": [
+      2,
+      {
+        "default": "array"
+      }
+    ],
+    "@typescript-eslint/await-thenable": 2,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/consistent-type-definitions": [2, "interface"],
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase"]
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "variable",
+        "types": ["boolean"],
+        "format": ["StrictPascalCase"],
+        "prefix": [
+          "is",
+          "has",
+          "show",
+          "touched",
+          "pristine",
+          "valid",
+          "loading",
+          "published",
+          "disabled"
+        ]
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "property",
+        "format": ["camelCase", "snake_case", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "memberLike",
+        "modifiers": ["private"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "require"
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "enumMember",
+        "format": ["PascalCase"]
+      }
+    ],
+    "@typescript-eslint/member-ordering": [
+      2,
+      {
+        "default": [
+          // Fields
+          "private-field",
+          "protected-field",
+          "public-field",
+          // Constructors
+          "constructor",
+          // Methods
+          "private-method",
+          "protected-method",
+          "public-method"
+        ]
+      }
+    ],
+    "@typescript-eslint/no-empty-function": 2,
+    "@typescript-eslint/no-empty-interface": 2,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-for-in-array": 2,
+    "@typescript-eslint/no-magic-numbers": [
+      0,
+      {
+        "ignoreNumericLiteralTypes": true,
+        "ignoreReadonlyClassProperties": true,
+        "ignoreEnums": false
+      }
+    ],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksConditionals": true,
+        "checksVoidReturn": false
+      }
+    ],
+    "@typescript-eslint/no-non-null-assertion": 2,
+    "@typescript-eslint/no-parameter-properties": 2,
+    "@typescript-eslint/no-unnecessary-type-arguments": 2,
+    "@typescript-eslint/no-unnecessary-type-assertion": 2,
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      {
+        "ignoreRestSiblings": true,
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-useless-constructor": 2,
+    "@typescript-eslint/prefer-includes": 2,
+    "@typescript-eslint/prefer-optional-chain": 1,
+    "@typescript-eslint/prefer-readonly": 2,
+    "@typescript-eslint/prefer-string-starts-ends-with": 2,
+    "@typescript-eslint/require-array-sort-compare": 2,
+    "@typescript-eslint/require-await": 2,
+    "@typescript-eslint/restrict-plus-operands": 2,
+    "@typescript-eslint/unbound-method": 2,
+    "react/prop-types": 0,
+    "no-console": 2,
+    "import/named": 0,
+    "import/no-default-export": 2,
+    "import/no-duplicates": 2,
+    "import/no-unresolved": 0,
+    "import/order": [
+      2,
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "unknown",
+          "parent",
+          "sibling",
+          "index",
+          "internal"
+        ],
+        "newlines-between": "always-and-inside-groups"
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error"
+  }
+}
