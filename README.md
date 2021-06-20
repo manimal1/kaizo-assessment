@@ -28,7 +28,7 @@ The build is minified and the filenames include the hashes.
 
 ## App architecture
 
-The app employs an architecture that was employed at my current workplace after a lot of internal discussion. I find it to be quite intuitive and since I voted on and helped implement it at my current job, there was no reason to not use it here. It is organized into `modules`.
+The app employs an architecture that is used at my current workplace. I find it to be quite intuitive and since I voted on and helped implement it at my current job, there was no reason to not use it here. It is organized into `modules`.
 
 ### Feature modules
 
